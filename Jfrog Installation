@@ -33,6 +33,7 @@ yum install jfrog-artifactory-oss
 systemctl enable artifactory
 
 #Start the artifactory service
+
 systemctl start artifactory
 
 #Check  the artifactory service status
@@ -54,4 +55,45 @@ a)check java is installed or not using java -version command.
 Unable to access JFrog Artifactory URL?
 ----------------------------------------------------
 a)make sure port 8081 is opened in security groups in AWS ec2 instance.
+
+Jfrog oss Installation for ubuntu
+---------------------------------------------
+Step 1: Import repository GPG Key
+
+sudo apt update
+wget -qO - https://api.bintray.com/orgs/jfrog/keys/gpg/public.key | sudo apt-key add -
+
+Step 2: Add JFrog Artifactory to Ubuntu 20.04
+
+echo "deb https://jfrog.bintray.com/artifactory-debs focal main" | sudo tee /etc/apt/sources.list.d/jfrog.list
+sudo apt update
+
+Step 3: Install JFrog Artifactory on Ubuntu 20.04
+
+sudo apt update
+sudo apt install jfrog-artifactory-oss
+
+sudo systemctl start artifactory.service
+sudo systemctl enable artifactory.service
+ systemctl status artifactory.service
+ 
+ Step 4: Access Artifactory Web Interface
+ http://SERVERIP_OR_DOMAIN:8081/artifactory
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
